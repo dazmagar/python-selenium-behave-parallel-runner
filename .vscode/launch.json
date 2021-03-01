@@ -1,0 +1,82 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Behave (venv)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/venv/test/Scripts/behave.exe",
+            "console": "integratedTerminal",
+            "args": [
+                "--no-skipped",
+                "--no-capture",
+                "tests/UI/features",
+                "--tags=@smoke",
+                "@test1_1",
+                // "-D",
+                // "lt_username=$(LT_USER)",
+                // "-D",
+                // "lt_access_key=$(LT_ACCESS_KEY)",
+                // "-D",
+                // "lt_tunnel=$(TUNNEL_NAME)",
+                // "-D",
+                // "build_id=local_test_1"
+            ]
+        },
+        {
+            "name": "Python: split",
+            "type": "python",
+            "request": "launch",
+            "program": "parallel_runner.py",
+            "console": "integratedTerminal",
+            "args": [
+                "split",
+                "-fd",
+                "./tests/UI/features",
+                "--tags=@smoke",
+                "-res",
+                "./tests/UI/features/parallel"
+            ]
+        },
+        {
+            "name": "Python: run",
+            "type": "python",
+            "request": "launch",
+            "program": "parallel_runner.py",
+            "console": "integratedTerminal",
+            "args": [
+                "run",
+                "--no-skipped",
+                "-fd",
+                "tests/UI/features/parallel",
+                "--tags=@smoke",
+                // "-D",
+                // "lt_username=$(LT_USER)",
+                // "-D",
+                // "lt_access_key=$(LT_ACCESS_KEY)",
+                // "-D",
+                // "lt_tunnel=$(TUNNEL_NAME)",
+                "-f",
+                "allure",
+                "-o",
+                "logs/allure_report",
+            ]
+        },
+        {
+            "name": "Python: Current file",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "-f",
+                "tests/UI/features/test1.feature",
+                "-f",
+                "tests/UI/features/test2.feature"
+            ]
+        }
+    ]
+}

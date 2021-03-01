@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"terminal.integrated.shellArgs.windows": [
+			"powershell -noexit -command \"& {cd $env; . ./venv/test/Scripts/activate.ps1}\""
+		]
+	}
+}
