@@ -7,6 +7,25 @@
 	"settings": {
 		"terminal.integrated.shellArgs.windows": [
 			"powershell -noexit -command \"& {cd $env; . ./venv/test/Scripts/activate.ps1}\""
-		]
+		],
+		"cucumberautocomplete.steps": [
+			"tests\\UI\\features\\steps\\github_*.py",
+		],
+		// "cucumberautocomplete.smartSnippets": true,
+		"cucumberautocomplete.strictGherkinCompletion": false,
+		"cucumberautocomplete.stepsInvariants": true,
+		"cucumberautocomplete.skipDocStringsFormat": true,
+		"cucumberautocomplete.syncfeatures": "tests\\UI\\features\\*.feature",
+		"cucumberautocomplete.customParameters": [
+			{
+				"parameter": "(u'",
+				"value": "('"
+			}
+		],
+		"editor.quickSuggestions": {
+			"comments": false,
+			"strings": true,
+			"other": true
+		}
 	}
 }
